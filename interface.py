@@ -3,7 +3,10 @@ import os
 
 # Open the serial port manually
 ser = serial.Serial('/dev/ttyACM0', timeout = 0.5)
-print(f"Connected to {ser.name}")
+#get serial number of device
+ser.write("-".encode())
+device_id = ser.readline().decode()[:-1]
+print(f"Connected to {device_id} via {ser.name}")
 
 # Start a loop
 while True:
