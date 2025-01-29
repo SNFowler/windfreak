@@ -15,7 +15,6 @@ while True:
 
     # Write user input to the serial port
     ser.write(user_input.encode())  # .encode() to convert the string to bytes
-    print(f"Sent: {user_input}")
 
     # Get the response from the serial port
     # readline will not stop reading until it encounters "\n" as the end of line character. This is a problem if there is nothing on the serial port.
