@@ -29,6 +29,5 @@ while True:
     if response:
         print("Recieved:")
         while response != 'EOM.\n' and response != '':
-            print("next line read\n")
             print(f"{response[:-1]}")
             response = safe_read_line(ser, timeout=1)
