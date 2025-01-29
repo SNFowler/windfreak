@@ -23,5 +23,5 @@ while True:
     if response:
         print("Recieved:")
         while response:
-            print(f"{response[:-1]}")
+            print(f"{response.decode()[:-1]}")
             response = ser.readline()
