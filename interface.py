@@ -1,14 +1,8 @@
 import serial
 import os
-import stopit
-
-# A decorated read line function that won't run forever if there is no EOL character
-@stopit.threading_timeoutable(default='')
-def safe_read_line(serial_port):
-    return serial_port.readline().decode()
 
 # Open the serial port manually
-ser = serial.Serial('/dev/ttyACM0')
+ser = serial.Serial('/dev/ttyACM0', timeout = 0.5)
 print(f"Connected to {ser.name}")
 
 # Start a loop
@@ -25,9 +19,9 @@ while True:
 
     # Get the response from the serial port
     # readline will not stop reading until it encounters "\n" as the end of line character. This is a problem if there is nothing on the serial port.
-    response = safe_read_line(ser, timeout=1)
+    response = ser.readline()
     if response:
         print("Recieved:")
-        while response != 'EOM.\n' and response != '':
+        while response:
             print(f"{response[:-1]}")
-            response = safe_read_line(ser, timeout=1)
+            response = ser.readline()
