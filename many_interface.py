@@ -1,4 +1,5 @@
 import serial
+import serial.tools.list_ports
 import os
 
 class windfreak_manager():
@@ -22,8 +23,8 @@ class windfreak_manager():
             self.windfreaks[device_id] = ser
 
     def display_windfreaks(self):
-        print("Current ports")
-        for id in sorted(self.windfreaks.items()):
+        print("Current ports:")
+        for id in sorted(self.windfreaks.keys()):
             print(f"{id} \t (via {self.windfreaks[id].port})")
     
     def command(self, device_id, str_command):
@@ -46,12 +47,13 @@ class windfreak_manager():
             return f"Invalid command: {device_id}-'{str_command}'"
     
     def close_all(self):
+        #closes everything
         for id in self.windfreaks.keys():
             self.windfreaks[id].close()
         
 
         
-manager = windfreak_manager
+manager = windfreak_manager()
 manager.display_windfreaks()
 
 # Start a loop
