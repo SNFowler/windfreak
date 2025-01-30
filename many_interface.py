@@ -4,10 +4,11 @@ import os
 class windfreak_manager():
     def __init__(self):
         self.windfreaks = {}
-        self._refresh_port_dict()      
-        self.display_port_dict()
+        self._refresh_wf_list()      
+        self.display_windfreaks()
 
-    def _refresh_port_dict(self):
+    def _refresh_wf_list(self):
+        # Gets the currently connected windfreaks
         for port in serial.tools.list_ports.comports():
             # name of serial port
             name_ACM = port.device
@@ -20,10 +21,10 @@ class windfreak_manager():
             device_id = ser.readline().decode()[:-1]
             self.windfreaks[device_id] = ser
 
-    def display_port_dict(self):
+    def display_windfreaks(self):
         print("Current ports")
-        for id in sorted(self.port_dict.items()):
-            print(f"{id} \t (via {self.port_dict[id].port})")
+        for id in sorted(self.windfreaks.items()):
+            print(f"{id} \t (via {self.windfreaks[id].port})")
     
     def command(self, device_id, str_command):
         try:
@@ -51,7 +52,7 @@ class windfreak_manager():
 
         
 manager = windfreak_manager
-manager.display_port_dict()
+manager.display_windfreaks()
 
 # Start a loop
 while True:
