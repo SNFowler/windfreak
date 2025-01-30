@@ -8,6 +8,12 @@ class windfreak_manager():
         self._refresh_wf_list()      
         self.display_windfreaks()
 
+        # things to summarise
+        # Name, command
+        self.summary_stats = {
+
+        }
+
     def _refresh_wf_list(self):
         # Gets the currently connected windfreaks
         for port in serial.tools.list_ports.comports():
@@ -27,13 +33,18 @@ class windfreak_manager():
         for id in sorted(self.windfreaks.keys()):
             print(f"{id} \t (via {self.windfreaks[id].port})")
     
-    def command(self, device_id, str_command):
+    def send(self, device_id, str_command):
         try:
             #send command to device, return the response
             ser = self.windfreaks[device_id]
-            ser.write(user_input.encode()) 
+            return ser.write(user_input.encode()) 
 
+        except:
+            raise Exception(f"Invalid command: {device_id} -'{str_command}'")
+    
+    def recieve(self, device_id):
             # get the returned response as a single string.
+            ser = self.windfreaks[device_id]
             response = ""
             current_line = ser.readline().decode()
             #Check for multiple return lines and add them to the response.
@@ -43,18 +54,33 @@ class windfreak_manager():
 
             return response
 
-        except:
-            return f"Invalid command: {device_id}-'{str_command}'"
+
+
+    def command(self, device_id, str_command):
+        #combin
+        self.send(device_id, str_command)
+        return self.recieve(device_id)
     
     def close_all(self):
         #closes everything
         for id in self.windfreaks.keys():
             self.windfreaks[id].close()
+    
+    def summary_status(self):
+        # Should get a summary from the stored settings
+        pass
+
+    def save_settings_json():
+        pass
+    
+    def load_settings_json():
+        pass
+
+
         
 
         
 manager = windfreak_manager()
-manager.display_windfreaks()
 
 # Start a loop
 while True:
