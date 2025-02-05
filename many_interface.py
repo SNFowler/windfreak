@@ -3,6 +3,7 @@ import serial.tools.list_ports
 import os
 import json
 
+
 """
 @TODO write a generic settings file. Apply.
 @TODO think about Send/Recieve. Do these need to be 2 functions or could the SCPI server code handle converting send/recieve commands and both of them be handled by the same method in this class? 
