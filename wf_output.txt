@@ -1,0 +1,54 @@
+C) Control Channel (A(0) or B(1))  0
+f) RF Frequency Now (MHz) 10.00000000, 1000.00000000
+W) RF Power (dBm) 0.000, 0.000
+V) Amp Calibration success? 1
+Z) Temperature Comp (0=none, 1=on set, 2=1sec, 3=10sec) 3, 3
+a) VGA DAC Setting (0=min, 4000=max) 907, 1033
+~) RF Phase Step (0=minimum, 360.0=maximum) 0.0000, 0.0000
+h) RF High(1) or Low(0) Power 1, 1
+E) PLL Chip En On(1) or Off(0) 0, 0
+U) PLL charge pump current 5, 5
+b) REF Doubler On(1) or Off(0) 0, 0
+i) Channel spacing (Hz) 100.000, 100.000
+x) Reference (external=0, int 27MHz=1, int 10MHz=2) 1
+*) PLL reference frequency (MHz) 27.00000000
+l) Sweep lower frequency (MHz) 10.00000000, 1000.00000000
+u) Sweep upper frequency (MHz) 5000.00000000, 5000.00000000
+s) Sweep step size (MHz/%) 0.00000010, 200.00000000
+t) Sweep step time (mS) 1.000, 1.000
+[) Sweep amplitude low (dBm) 0.000, 0.000
+]) Sweep amplitude high (dBm) 0.000, 0.000
+^) Sweep direction (up=1 / down=0) 1, 1
+k) Sweep differential seperation (MHz) 0.00000000
+n) Sweep differential: (0=off, 1=ChA-DiffFreq, 2=ChA+DiffFreq)  0
+X) Sweep type (lin=0 / tab=1 / %=2) 0, 0
+g) Sweep run (on=1 / off=0) 0
+c) Sweep set continuous mode 0
+w) Enable trigger: (0=software, 1=sweep, 2=step, 3=hold all, ..) 0
+Y) Trigger Polarity (active low=0 / active high=1) 0
+F) AM step time (uS) 20
+q) AM # of cycle repetitions 65
+A) AM Run Continuous (on=1 / off=0) 0
+P) Pulse On time (uS) 1, 1
+O) Pulse Off time (uS) 10, 10
+R) Pulse # of repetitions 10, 10
+:) Pulse Invert signal (on=1 / off=0) 0, 0
+G) Pulse Run one burst
+j) Pulse continuous mode 0
+<) FM Frequency (Hz) 1000, 1000
+>) FM Deviation (Hz) 100000, 100000
+,) FM # of repetitions 100, 100
+;) FM Type (sinusoid=0 / chirp=1) 0, 0
+/) FM continuous mode 0
+p) Phase lock status (lock=1 / unlock=0) 0, 0
+I) Trigger digital status (high=1 / low=0) 0
+z) Temperature in degrees C 37.125
+m) Automatic communication mode (UART=1 / USB=0) 0
+T) Send test message to both USB and UART
+v) Show version (0=FW, 1=HW, 2=Model) 3.25, 2.06
++) Model Type
+-) Serial Number 1214
+e) Write all settings to eeprom
+?) help
+Cal datecode YYWW 2229
+EOM.
