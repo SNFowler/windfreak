@@ -15,12 +15,12 @@ Ability to give windfreaks "nicknames" was removed for now, as it added a lot of
 class windfreak_manager():
     def __init__(self, config_path = "config/default.json"):
         # load default settings
-        self.config_path = config_path    
+        #self.config_path = config_path    
         self.config = None
         self.windfreaks = {}
         
         # load settings
-        self.load_config()
+        #self.load_config()
         
         # Windfreak serials are indexed by static device ID (1182)
         self._refresh_wf_list()
